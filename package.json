@@ -3,11 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --assets ./assets",
+    "dev": "wrangler dev --assets ./assets",
     "start": "wrangler dev"
   },
   "devDependencies": {
     "wrangler": "^3.0.0"
+  },
+  "dependencies": {
+    "@cloudflare/ai": "^1.0.48",
+    "hono": "^3.12.8"
   }
 }

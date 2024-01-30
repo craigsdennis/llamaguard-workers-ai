@@ -1,15 +1,27 @@
-/**
- * Welcome to Cloudflare Workers! This is your first worker.
- *
- * - Run `npm run dev` in your terminal to start a development server
- * - Open a browser tab at http://localhost:8787/ to see your worker in action
- * - Run `npm run deploy` to publish your worker
- *
- * Learn more at https://developers.cloudflare.com/workers/
- */
+import { Hono } from 'hono';
+import { Ai } from '@cloudflare/ai';
 
-export default {
-	async fetch(request, env, ctx) {
-		return new Response('Hello World!');
-	},
-};
+const app = new Hono();
+
+app.get('/', async (c) => {
+	return c.json({ hi: 'mom' });
+});
+
+app.post('/api/check', async (c) => {
+	const ai = new Ai(c.env.AI);
+	const payload = await c.req.json();
+	const systemMessage = `Task: Check if there is unsafe content in 'user' messages in conversations according our safety policy with the below categories.
+	<BEGIN UNSAFE CONTENT CATEGORIES>
+	${payload.unsafeContentCategories}
+	<END UNSAFE CONTENT CATEGORIES>
+	`;
+	const messages = [
+		{ role: 'system', content: systemMessage },
+		{ role: 'user', content: payload.userContent },
+	];
+	console.log('messages', messages);
+	const response = await ai.run('@hf/thebloke/llamaguard-7b-awq', { messages });
+	return c.json(response);
+});
+
+export default app;
