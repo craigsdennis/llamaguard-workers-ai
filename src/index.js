@@ -3,10 +3,6 @@ import { Ai } from '@cloudflare/ai';
 
 const app = new Hono();
 
-app.get('/', async (c) => {
-	return c.json({ hi: 'mom' });
-});
-
 app.post('/api/check', async (c) => {
 	const ai = new Ai(c.env.AI);
 	const payload = await c.req.json();
