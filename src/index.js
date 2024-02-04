@@ -22,7 +22,9 @@ app.post('/api/check', async (c) => {
 	- First line must read 'safe' or 'unsafe'.
 	- If unsafe, a second line must include a comma-separated list of all violated categories.
 	`;
-	const response = await ai.run('@hf/thebloke/llamaguard-7b-awq', { prompt });
+	const response = await ai.run('@hf/thebloke/llamaguard-7b-awq', {
+		prompt,
+	});
 	return c.json(response);
 });
 
