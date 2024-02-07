@@ -9,6 +9,7 @@ This is, like all of us, a work in progress.
 
 ```bash
 npm install
+npx wrangler login
 ```
 
 ## Development Mode
