@@ -90,7 +90,7 @@ async function runCheck(role, prompt, assistantResponse, unsafeContentCategories
 
 function displayResult(status, role, text, reason) {
 	const tableBody = document.getElementById('resultsTable').getElementsByTagName('tbody')[0];
-	const newRow = tableBody.insertRow();
+	const newRow = tableBody.insertRow(0);
 	const iconCell = newRow.insertCell(0);
 	const statusCell = newRow.insertCell(1);
 	const roleCell = newRow.insertCell(2);
