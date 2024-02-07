@@ -13,14 +13,14 @@ h1 {
   margin-bottom: 20px;
 }
 
-#promptInput, #unsafeCategories {
+#promptInput, #assistantResponse, #unsafeCategories {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
-#submitButton, #categoriesToggle {
+#submitButton, #categoriesToggle, #generateSuggestion {
   padding: 10px 20px;
   background-color: #5cb85c;
   color: white;
@@ -34,11 +34,11 @@ h1 {
   background-color: #4cae4c;
 }
 
-#categoriesToggle {
+#categoriesToggle, #generateSuggestion {
   background-color: #337ab7;
 }
 
-#categoriesToggle:hover {
+#categoriesToggle:hover, #generateSuggestion:hover {
   background-color: #286090;
 }
 

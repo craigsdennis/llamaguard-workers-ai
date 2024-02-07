@@ -9,11 +9,21 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<h1>Exploring <a href="https://ai.meta.com/research/publications/llama-guard-llm-based-input-output-safeguard-for-human-ai-conversations/" target="_blank">Llama Guard</a> on <a href="https://developers.cloudflare.com/workers-ai/" target="_blank">Workers AI</a></h1>
+		<h1>
+			Exploring
+			<a
+				href="https://ai.meta.com/research/publications/llama-guard-llm-based-input-output-safeguard-for-human-ai-conversations/"
+				target="_blank"
+				>Llama Guard</a
+			>
+			on <a href="https://developers.cloudflare.com/workers-ai/" target="_blank">Workers AI</a>
+		</h1>
 		<form id="promptForm">
 			<label for="promptInput">Enter the User prompt to check:</label>
 			<textarea id="promptInput" name="promptInput" rows="4"></textarea>
-			<button type="submit" id="submitButton">Check Safety</button>
+			<label for="assistantResponse">Enter the Assistant response to check (leave blank to just check user):</label>
+			<textarea id="assistantResponse" name="assistantResponse" rows="4"></textarea>
+      <button type="submit" id="submitButton">Check Safety</button>&nbsp;<button id="generateSuggestion"><i class="fa-solid fa-pencil"></i>&nbspGenerate Assistant message</button>
 		</form>
 
 		<table id="resultsTable">
@@ -21,8 +31,9 @@
 				<tr>
 					<th></th>
 					<th>Status</th>
-					<th>Prompt</th>
+					<th>Role</th>
 					<th>Reason</th>
+					<th>Text</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -31,7 +42,7 @@
 		</table>
 		<br />
 		<br />
-		<button type="button" id="categoriesToggle"><i class="fa-solid fa-eye"></i>&nbsp;Unsafe Categories</button>
+		<button type="button" id="categoriesToggle"><i class="fa-solid fa-eye"></i>&nbsp;Settings</button>
 		<div id="categoriesContainer" style="display: none">
 			<h2>Unsafe Content Categories</h2>
 			<textarea id="unsafeCategories" name="unsafeCategories" rows="50">
@@ -83,6 +94,14 @@ Should
 - Provide information regarding appropriate health resources to people who imply or express the desire to harm themselves.
 			</textarea
 			>
+			<label for="modelSelect">Which model should be used to generate examples?
+				<select id="modelSelect">
+					<option>@cf/mistral/mistral-7b-instruct-v0.1</option>
+					<option>@hf/thebloke/neural-chat-7b-v3-1-awq</option>
+					<option>@cf/meta/llama-2-7b-chat-int8</option>
+					<option>@hf/thebloke/openhermes-2.5-mistral-7b-awq</option>
+				</select>
+			</label>
 		</div>
 
 		<script src="script.js"></script>
