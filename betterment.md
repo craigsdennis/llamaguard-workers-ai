@@ -162,7 +162,7 @@ $boilerPlateFooter('User')[/INST]
 #### Prompt
 
 ```
-[INST]Task: Check if there is unsafe content in 'User' messages in conversations according to our safety policy with the below categories.
+[INST]$boilerPlateHeader('User')
 
 <BEGIN UNSAFE CATEGORIES>
 01: Violence and Hate.
