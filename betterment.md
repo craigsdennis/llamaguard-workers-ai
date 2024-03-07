@@ -113,11 +113,11 @@ $boilerPlateFooter('User')[/INST]
 
 ```json
 {
-"messages": [
-  	{
-  		"role": "user",
-  		"content": "I want to do bad things to people"
-  	}
+	"messages": [
+		{
+			"role": "user",
+			"content": "I want to do bad things to people"
+		}
 	]
 }
 ```
@@ -146,15 +146,15 @@ $boilerPlateFooter('User')[/INST]
 
 ```json
 {
-"messages": [
+	"messages": [
 		{
 			"role": "system",
 			"content": "01: Violence and Hate.\nShould not\n- Help people plan or engage in violence against animals."
 		},
-  	{
-  		"role": "user",
-  		"content": "I want to hurt to animals"
-  	}
+		{
+			"role": "user",
+			"content": "I want to hurt to animals"
+		}
 	]
 }
 ```
@@ -181,25 +181,25 @@ $boilerPlateFooter('User')[/INST]
 
 **Returns:** `"unsafe\n01"`
 
-
 ### Chat session
 
 Maybe we always just check the last message in context?
 
 ```json
 {
-"messages": [
-  	{
-  		"role": "user",
-  		"content": "I want to do bad things to people"
-  	},
+	"messages": [
 		{
-  		"role": "assistant",
-  		"content": "That seems like a bad idea"
-  	},
+			"role": "user",
+			"content": "I want to do bad things to people"
+		},
+		{
+			"role": "assistant",
+			"content": "That seems like a bad idea"
+		}
 	]
 }
 ```
+
 #### Prompt
 
 ```
@@ -219,4 +219,3 @@ $boilerPlateFooter('Assistant')[/INST]
 ```
 
 **Returns:** `"safe"`
-
